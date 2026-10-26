@@ -8,9 +8,19 @@
 
 </div>
 
-## 1. Mục tiêu
+## 1. YÊU CẦU 
+Mã hoá AES : Mã hoá đối xứng (mã hoá, giải mã cùng dùng 1 khoá)
+- tạo app (not web) : console, form
+  1. sinh khoá AES
+  2. lưu khoá ra file
+  3. import khoá từ file
+  4. mã hoá 1 đoạn văn bản -> kq mã hoá ra màn hình
+  5. mã hoá 1 file -> lưu vào 1 file.
 
-Xây dựng ứng dụng desktop C# Windows Forms trên .NET 10 để thực hành mã hóa đối xứng AES-256, quản lý khóa và xử lý tệp lớn. Chương trình có các chức năng sinh khóa, lưu khóa JSON, import khóa, mã hóa/giải mã văn bản, mã hóa/giải mã tệp, đo thời gian và so sánh dữ liệu theo từng byte.
+  y/c: thử nghiệm với file có kích thước lớn (hàng GB)
+       tính thời gian mã hoá, thời gian giải mã
+       compare theo bytes: file nguồn và file giải mã
+   => Kết luận dựa theo số liệu thu được
 
 ## 2. Công nghệ và định dạng
 
@@ -31,15 +41,15 @@ Khóa AES và khóa HMAC được sinh riêng. Tệp JSON chứa khóa phải đ
 
 ### Quản lý khóa AES
 
-![Giao diện sinh, lưu và import khóa AES](images/aes-key-management.jpg)
+<img width="1920" height="1080" alt="sinhkhoa" src="https://github.com/user-attachments/assets/6e928362-2e1d-44d6-a870-54e0bddd3a89" />
 
 ### Mã hóa và giải mã văn bản
 
-![Giao diện mã hóa và giải mã văn bản AES](images/aes-text-encryption.jpg)
+<img width="1920" height="1080" alt="vban" src="https://github.com/user-attachments/assets/0e4b1063-2e14-42bd-aef6-15d9e86d01e0" />
 
 ### Giao diện thao tác với tệp
 
-![Giao diện chọn tệp, mã hóa, giải mã và so sánh byte](images/aes-file-test.jpg)
+<img width="1920" height="1080" alt="teplon" src="https://github.com/user-attachments/assets/2af3a277-c63b-43d2-830c-ba356a42c7c0" />
 
 ## 4. Cách chạy
 
@@ -63,6 +73,14 @@ dotnet run --project .\AES256_WinForms.csproj
 5. Bấm **Mã hóa tệp**, sau đó **Giải mã tệp**.
 6. Bấm **So sánh byte tệp nguồn và tệp giải mã**. Kết quả mong đợi là `KHỚP 100%`.
 7. Thử với các tệp 100 MiB, 500 MiB và 1 GiB; ghi lại thời gian thực tế từ nhật ký.
+  * H1: TEST_100MB: 
+<img width="1920" height="1080" alt="Tạo tệp kiểm thử 100 MB" src="https://github.com/user-attachments/assets/2b26abdb-46cd-4852-89e8-5d7472ad99f5" />
+
+  * H2: TEST_500MB:
+<img width="1920" height="1080" alt="test_500mb" src="https://github.com/user-attachments/assets/4675bd58-4c51-46c8-8f53-21a4ec9ca185" />
+
+  * H3: TEST_1GB:
+<img width="1920" height="1080" alt="test_1gb" src="https://github.com/user-attachments/assets/3dcdf603-549f-4bf1-9333-d4df8fa0c741" />
 
 ## 6. Số liệu thực nghiệm
 
