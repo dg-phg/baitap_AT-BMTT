@@ -1,15 +1,16 @@
 
 <div align="center">
 
-**TRƯỜNG ĐẠI HỌC KỸ THUẬT CÔNG NGHIỆP**  
-**Sinh viên:** Dương Thị Anh Phương · **Lớp:** K59KMT  
-**Môn học:** An toàn và bảo mật thông tin
+# **TRƯỜNG ĐẠI HỌC KỸ THUẬT CÔNG NGHIỆP**  
+ **Sinh viên:** Dương Thị Anh Phương · **Lớp:** K59KMT  
+ **Môn học:** An toàn và bảo mật thông tin
 
 </div>
+---- 
 
-# Bài tập 1_ FILE: `AES256_WinFoms_NET10` — Mã hóa AES-256
+## Bài tập 1_ FILE: `AES256_WinFoms_NET10` — Mã hóa AES-256
 
-## 1. YÊU CẦU 
+### 1. YÊU CẦU 
 Mã hoá AES : Mã hoá đối xứng (mã hoá, giải mã cùng dùng 1 khoá)
 - tạo app (not web) : console, form
   1. sinh khoá AES
@@ -23,7 +24,7 @@ Mã hoá AES : Mã hoá đối xứng (mã hoá, giải mã cùng dùng 1 khoá)
        compare theo bytes: file nguồn và file giải mã
    => Kết luận dựa theo số liệu thu được
 
-## 2. Công nghệ và định dạng
+### 2. Công nghệ và định dạng
 
 - C# · .NET 10 · Windows Forms · Visual Studio 2026.
 - AES-256-CBC với IV ngẫu nhiên.
@@ -38,21 +39,21 @@ Magic header (8 byte) || IV (16 byte) || AES-CBC ciphertext || HMAC-SHA256 (32 b
 
 Khóa AES và khóa HMAC được sinh riêng. Tệp JSON chứa khóa phải được giữ bí mật và không được commit lên repository công khai.
 
-## 3. Giao diện
+### 3. Giao diện
 
-### Quản lý khóa AES
+#### Quản lý khóa AES
 
 <img width="1920" height="1080" alt="sinhkhoa" src="https://github.com/user-attachments/assets/6e928362-2e1d-44d6-a870-54e0bddd3a89" />
 
-### Mã hóa và giải mã văn bản
+#### Mã hóa và giải mã văn bản
 
 <img width="1920" height="1080" alt="vban" src="https://github.com/user-attachments/assets/0e4b1063-2e14-42bd-aef6-15d9e86d01e0" />
 
-### Giao diện thao tác với tệp
+#### Giao diện thao tác với tệp
 
 <img width="1920" height="1080" alt="teplon" src="https://github.com/user-attachments/assets/2af3a277-c63b-43d2-830c-ba356a42c7c0" />
 
-## 4. Cách chạy
+### 4. Cách chạy
 
 Yêu cầu Windows 10/11, Visual Studio 2026 với workload **.NET desktop development**, và .NET 10 SDK.
 
@@ -65,7 +66,7 @@ dotnet build .\AES256_WinForms.csproj
 dotnet run --project .\AES256_WinForms.csproj
 ```
 
-## 5. Quy trình kiểm thử
+### 5. Quy trình kiểm thử
 
 1. Vào tab **Khóa AES**, bấm **Sinh khóa mới**, sau đó **Lưu khóa ra tệp...**.
 2. Đóng và mở lại ứng dụng, bấm **Import khóa từ tệp...** để nạp khóa đã lưu.
@@ -83,7 +84,7 @@ dotnet run --project .\AES256_WinForms.csproj
   * H3: TEST_1GB:
 <img width="1920" height="1080" alt="test_1gb" src="https://github.com/user-attachments/assets/3dcdf603-549f-4bf1-9333-d4df8fa0c741" />
 
-## 6. Số liệu thực nghiệm
+### 6. Số liệu thực nghiệm
 
 Số liệu dưới đây được ghi nhận từ nhật ký chạy chương trình trên máy của sinh viên.
 
@@ -105,13 +106,13 @@ Số byte sau giải mã:
 
 Với tệp 1 GiB, chương trình đã so sánh thành công 1.073.741.824 byte. Dữ liệu sau giải mã khớp 100% với tệp nguồn trong lần thử đã thực hiện.
 
-## 7. Nhận xét và kết luận
+### 7. Nhận xét và kết luận
 
 Chương trình đã thực hiện các chức năng sinh, lưu và import khóa; mã hóa/giải mã văn bản; mã hóa/giải mã tệp; đo thời gian và so sánh từng byte. Các thử nghiệm 100 MiB, 500 MiB và 1 GiB đều khôi phục dữ liệu chính xác. Với tệp 1 GiB, thời gian mã hóa đo được là 5,563 giây và thời gian giải mã là 6,349 giây.
 
 Kết quả minh họa rằng chương trình có thể xử lý tệp lớn bằng streaming mà không cần nạp toàn bộ tệp vào RAM. Hiệu năng thay đổi theo CPU, thiết bị lưu trữ và điều kiện chạy.
 
-## 8. Lưu ý bảo mật
+### 8. Lưu ý bảo mật
 
 - Không commit `aes-key.json` hoặc bất kỳ tệp nào chứa khóa AES/HMAC.
 - Không commit tệp mã hóa hay dữ liệu kiểm thử lớn nếu không cần thiết.
@@ -119,10 +120,10 @@ Kết quả minh họa rằng chương trình có thể xử lý tệp lớn b�
 
 -----
 
-# Bài tập 2_ FILE: `RSA_SHA256_WinFoms` — RSA, SHA-256 và chữ ký số
+## Bài tập 2_ FILE: `RSA_SHA256_WinFoms` — RSA, SHA-256 và chữ ký số
 </div>
 
-## 1. YÊU CẦU 
+### 1. YÊU CẦU 
 Mã hoá RSA : mã hoá bất đối xứng (mã hoá 1 chìa, giải mã bằng chìa còn lại)
   tạo app: (.NET)
  1. sinh cặp khoá
@@ -150,7 +151,7 @@ MONG MUỐN:
 HÃY ĐỀ XUẤT PHƯƠNG PHÁP ĐỂ ĐẠT ĐƯỢC ĐIỀU NÀY.
 
 
-## 2. Chức năng
+### 2. Chức năng
 
 - Sinh cặp khóa RSA-2048.
 - Xuất `public.pem` và `private.pem`, import PEM từ tệp.
@@ -161,7 +162,7 @@ HÃY ĐỀ XUẤT PHƯƠNG PHÁP ĐỂ ĐẠT ĐƯỢC ĐIỀU NÀY.
 - Tính SHA-256 tự động khi đầu vào thay đổi.
 - Ký và xác minh chữ ký RSA-PSS.
 
-## 3. Công nghệ
+### 3. Công nghệ
 
 - C# · .NET 10 · Windows Forms · Visual Studio 2026.
 - RSA-2048 với OAEP-SHA256 cho mã hóa dữ liệu.
@@ -169,7 +170,7 @@ HÃY ĐỀ XUẤT PHƯƠNG PHÁP ĐỂ ĐẠT ĐƯỢC ĐIỀU NÀY.
 - RSA-PSS với SHA-256 cho chữ ký số.
 - PEM cho biểu diễn khóa bằng văn bản và DER cho dữ liệu ASN.1 nhị phân.
 
-## 4. Giới hạn RSA-OAEP-SHA256
+### 4. Giới hạn RSA-OAEP-SHA256
 
 Với RSA-2048, modulus dài 256 byte. OAEP-SHA256 cho phép mã hóa tối đa:
 
@@ -179,28 +180,28 @@ Với RSA-2048, modulus dài 256 byte. OAEP-SHA256 cho phép mã hóa tối đa:
 
 Khóa AES-256 dài 32 byte, do đó phù hợp với giới hạn này. Khi biểu diễn 32 byte bằng Base64, chuỗi thường dài 44 ký tự; cần giải mã Base64 về mảng byte trước khi thực hiện RSA.
 
-## 5. PEM và DER
+### 5. PEM và DER
 
 PEM bọc dữ liệu nhị phân DER bằng Base64 và có các dòng BEGIN/END. Public key theo SubjectPublicKeyInfo chứa tham số công khai `n` và `e`. Private key PKCS#8 chứa cấu trúc khóa riêng, bao gồm `n`, `e`, `d`, `p`, `q` và các tham số CRT.
 
 Ý nghĩa từng byte DER phụ thuộc vào thẻ ASN.1, trường độ dài và cấu trúc lồng nhau; không nên gán một ý nghĩa cố định cho mọi vị trí byte của tất cả tệp PEM.
 
-## 6. Ảnh giao diện
+### 6. Ảnh giao diện
 
-### Khóa RSA và PEM
+#### Khóa RSA và PEM
 
 <img width="1920" height="1080" alt="2 khóa rsa pem" src="https://github.com/user-attachments/assets/dfc02600-bed1-427a-be1c-9acfcd0d7cac" />
 
-### Mã hóa, giải mã và benchmark
+#### Mã hóa, giải mã và benchmark
 
 <img width="1920" height="1080" alt="3 mã hóa giải mã" src="https://github.com/user-attachments/assets/2f2e23d1-ae45-4fdf-b24c-a3628e81ffd0" />
 
 
-### SHA-256 
+#### SHA-256 
 
 <img width="1920" height="1080" alt="4 sha 256" src="https://github.com/user-attachments/assets/f1d23df0-217a-4e62-88d6-c6f56a1447ee" />
 
-### Chữ ký số 
+#### Chữ ký số 
 
 * Hợp lệ: 
 <img width="1920" height="1080" alt="5 cky so" src="https://github.com/user-attachments/assets/3ecc51fc-7eb2-4843-ab00-878d4c5af272" />
@@ -208,7 +209,7 @@ PEM bọc dữ liệu nhị phân DER bằng Base64 và có các dòng BEGIN/END
 * Không hợp lệ:
 <img width="1920" height="1080" alt="5 1 cky so khople" src="https://github.com/user-attachments/assets/0f80987c-1e8b-494a-a095-8299261c8f5a" />
 
-## 7. Hướng dẫn chạy
+### 7. Hướng dẫn chạy
 
 Yêu cầu Windows 10/11, Visual Studio 2026 với workload **.NET desktop development**, và .NET 10 SDK.
 
@@ -221,7 +222,7 @@ dotnet build .\RSA_SHA256_WinForms.csproj
 dotnet run --project .\RSA_SHA256_WinForms.csproj
 ```
 
-## 8. Quy trình kiểm thử
+### 8. Quy trình kiểm thử
 
 1. Sinh cặp khóa RSA-2048 và xuất thành `public.pem` cùng `private.pem`.
 2. Đóng ứng dụng, chạy lại và import riêng từng tệp PEM.
@@ -233,7 +234,7 @@ dotnet run --project .\RSA_SHA256_WinForms.csproj
 8. Ký cùng dữ liệu hai lần bằng RSA-PSS; kiểm tra hai chữ ký khác nhau nhưng đều xác minh hợp lệ.
 9. Sửa dữ liệu nhưng giữ chữ ký cũ; việc xác minh phải thất bại.
 
-## 9. Kết quả benchmark
+### 9. Kết quả benchmark
 
 Benchmark được thực hiện với dữ liệu 32 byte và 100 lần lặp.
 
@@ -246,11 +247,11 @@ Benchmark được thực hiện với dữ liệu 32 byte và 100 lần lặp.
 
 Trong phép đo này, giải mã bằng private key chậm hơn mã hóa public key khoảng 15,9 lần; ký bằng private key chậm hơn xác minh public key khoảng 25,4 lần. Đây là kết quả của môi trường thử nghiệm cụ thể, không phải hằng số cho mọi máy tính.
 
-## 10. Kết quả SHA-256
+### 10. Kết quả SHA-256
 
 SHA-256 luôn tạo đầu ra 256 bit (32 byte). Trong thử nghiệm, thay đổi một ký tự cho kết quả có 126/256 bit khác nhau, tương đương 49,22%. Kết quả minh họa hiệu ứng thác đổ của hàm băm.
 
-## 11. Chữ ký số RSA-PSS
+### 11. Chữ ký số RSA-PSS
 
 Ứng dụng dùng SHA-256 và RSA-PSS để ký dữ liệu bằng private key và xác minh bằng public key. RSA-PSS dùng salt ngẫu nhiên nên có thể tạo ra chữ ký khác nhau cho cùng dữ liệu và cùng private key, đồng thời mỗi chữ ký vẫn có thể xác minh hợp lệ.
 
@@ -263,13 +264,13 @@ Các kết quả kiểm thử mong đợi:
 | Xác minh từng chữ ký với dữ liệu gốc | Hợp lệ |
 | Sửa dữ liệu nhưng giữ chữ ký cũ | Không hợp lệ |
 
-## 12. Nhận xét và kết luận
+### 12. Nhận xét và kết luận
 
 Chương trình minh họa được quy trình sinh và quản lý cặp khóa RSA, mã hóa/giải mã dữ liệu, phân tích PEM/DER, benchmark RSA, hàm băm SHA-256 và chữ ký số RSA-PSS. Các kết quả đo trên dữ liệu 32 byte cho thấy các thao tác public key nhanh hơn các thao tác private key trong cấu hình đã thử nghiệm.
 
 Bài tập giúp củng cố kiến thức về mật mã bất đối xứng, quản lý khóa, tính toàn vẹn dữ liệu, hàm băm và xác minh chữ ký số.
 
-## 13. Lưu ý bảo mật
+### 13. Lưu ý bảo mật
 
 - Không commit `private.pem`, khóa riêng hoặc dữ liệu bí mật lên GitHub.
 - Không đưa khóa riêng vào mã nguồn hoặc ảnh chụp màn hình công khai.
