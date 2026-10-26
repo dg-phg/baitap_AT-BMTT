@@ -8,9 +8,33 @@
 
 </div>
 
-## 1. Mục tiêu
+## 1. YÊU CẦU 
+Mã hoá RSA : mã hoá bất đối xứng (mã hoá 1 chìa, giải mã bằng chìa còn lại)
+  tạo app: (.NET)
+ 1. sinh cặp khoá
+ 2. xuất cặp khoá ra file (pem)
+ 3. view pem: cùng các ý nghĩa các byte trong format pem
+ 4. nhập 1 file pem : public key được n và e
+    nhập 1 file pem : priavte key được n và e, d, ...
+5. mã hoá dữ liệu sử dụng key vừa import:
+    dữ liệu là 1 mảng byte ko quá 190 byte
+   (khoá AES 256 bit <=> 32 byte (base64))
+   kq mã hoá đc mảng byte (lưu ở dạng base64) => lưu file
+6. giải mã: đầu vào là pem, file chứa data đã mã hoá (base64)
+   so sánh kq giải mã với nguồn trước khi mã hoá.
+7. viết đoạn code đánh giá tốc độ mã hoá, giải mã
+   xem dùng khoá nào (pulic key: n, e bé), private key(n, d to đùng)
+   thì tốc độ ra sao?
+8. tạo giao diện sinh chuỗi băm SHA256 bít
+   khi thay đổi đầu vào => băm mới: đánh giá sự thay đổi của kq băm  khi dữ liệu đầu vào thay đổi (rất ít)
+9. CHỮ KÝ SỐ: thực ra là dùng RSA với khoá bí mật cho kq băm của dữ liệu => được gọi là chữ ký số của dữ liệu đó.
+=> dữ liệu khác nhau : có chữ ký số khác nhau (của cùng người ký)
+MONG MUỐN: 
+  + cùng 1 dữ liệu, 
+  + Cùng 1 người ký (cùng private key) 
+  =>thì chữ ký số cũng khác nhau với các lần ký khác nhau
+HÃY ĐỀ XUẤT PHƯƠNG PHÁP ĐỂ ĐẠT ĐƯỢC ĐIỀU NÀY.
 
-Xây dựng ứng dụng desktop C# Windows Forms trên .NET 10 để thực hành mã hóa bất đối xứng RSA-2048, quản lý khóa PEM, phân tích dữ liệu DER, đo hiệu năng RSA, tính SHA-256 và tạo/xác minh chữ ký số RSA-PSS.
 
 ## 2. Chức năng
 
@@ -51,17 +75,24 @@ PEM bọc dữ liệu nhị phân DER bằng Base64 và có các dòng BEGIN/END
 
 ### Khóa RSA và PEM
 
-![Giao diện khóa RSA và phân tích PEM](images/rsa-pem.jpg)
+<img width="1920" height="1080" alt="2 khóa rsa pem" src="https://github.com/user-attachments/assets/dfc02600-bed1-427a-be1c-9acfcd0d7cac" />
 
 ### Mã hóa, giải mã và benchmark
 
-![Giao diện mã hóa giải mã và benchmark RSA](images/rsa-encryption-benchmark.jpg)
+<img width="1920" height="1080" alt="3 mã hóa giải mã" src="https://github.com/user-attachments/assets/2f2e23d1-ae45-4fdf-b24c-a3628e81ffd0" />
 
-### SHA-256 và hiệu ứng thác đổ
 
-![Giao diện thử nghiệm SHA-256](images/sha256-test.jpg)
+### SHA-256 
 
-Ảnh chụp giao diện chữ ký số có thể bổ sung vào thư mục `images` sau khi chụp tab **Chữ ký số RSA-PSS**.
+<img width="1920" height="1080" alt="4 sha 256" src="https://github.com/user-attachments/assets/f1d23df0-217a-4e62-88d6-c6f56a1447ee" />
+
+### Chữ ký số 
+
+* Hợp lệ: 
+<img width="1920" height="1080" alt="5 cky so" src="https://github.com/user-attachments/assets/3ecc51fc-7eb2-4843-ab00-878d4c5af272" />
+
+* Không hợp lệ:
+<img width="1920" height="1080" alt="5 1 cky so khople" src="https://github.com/user-attachments/assets/0f80987c-1e8b-494a-a095-8299261c8f5a" />
 
 ## 7. Hướng dẫn chạy
 
