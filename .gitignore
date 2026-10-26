@@ -1,0 +1,23 @@
+
+# Visual Studio and .NET build output
+.vs/
+**/bin/
+**/obj/
+*.user
+*.suo
+
+# Secret keys - never upload
+**/private.pem
+**/aes-key.json
+**/*.pfx
+**/*.p12
+
+# Local test files
+**/test_data/
+**/TestData/
+**/*.aes
+**/*.restored
+**/*.bin
+**/rsa_ciphertext.b64
+**/rsa_source.bin
+**/rsa_decrypted.bin
